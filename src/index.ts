@@ -1,11 +1,13 @@
 import { Client } from 'pg'
+const process = require('process');
+
  
 const client = new Client({
-  host: 'my.database-server.com',
-  port: 5334,
-  database: 'database-name',
-  user: 'database-user',
-  password: 'secretpassword!!',
+  host: process.env.HOST,
+  port: 5432,
+  database: process.env.DATABASE,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
 })
 
 client.connect()
